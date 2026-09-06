@@ -2,17 +2,17 @@
   "type": "create:filling",
   "ingredients": [
     {
-      "item": "minecraft:cobblestone"
+      "tag": "c:sulfur_dust"
     },
     {
       "type": "neoforge:single",
-      "amount": 10,
-      "tag": "minecraft:lava"
+      "amount": 20,
+      "fluid": "minecraft:lava"
     }
   ],
   "results": [
     {
-      "id": "minecraft:netherrack"
+      "id": "minecraft:gunpowder"
     }
   ]
 }

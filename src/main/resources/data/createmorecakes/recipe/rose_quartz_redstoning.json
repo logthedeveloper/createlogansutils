@@ -1,0 +1,5 @@
+{
+  "type": "createmorecakes:bulk_redstoning",
+  "ingredient": { "item": "minecraft:quartz" },
+  "result": { "id": "create:rose_quartz", "count": 1 }
+}

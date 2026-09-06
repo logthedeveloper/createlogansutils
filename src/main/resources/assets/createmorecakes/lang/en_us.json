@@ -1,12 +1,13 @@
 {
   "itemGroup.createmorecakes": "Create: More Cakes",
+  "item.createmorecakes.sulfur_dust": "Sulfur Dust",
+  "item.createmorecakes.music_disc_barkfart": "barkfart",
   "item.createmorecakes.blaze_milk_cake": "Milk Cake",
-
+  "item.createmorecakes.feesh": "FEEEEEEEESH",
+  "item.createmorecakes.cheese_bowl": "Cheese Bowl",
+  "item.createmorecakes.cheesy_bread": "Cheesy Bread",
   "createmorecakes.configuration.title": "Create: More Cakes Configs",
   "createmorecakes.configuration.section.createmorecakes.common.toml": "Create: More Cakes Configs",
   "createmorecakes.configuration.section.createmorecakes.common.toml.title": "Create: More Cakes Configs",
-  "createmorecakes.configuration.items": "Item List",
-  "createmorecakes.configuration.logDirtBlock": "Log Dirt Block",
-  "createmorecakes.configuration.magicNumberIntroduction": "Magic Number Text",
-  "createmorecakes.configuration.magicNumber": "Magic Number"
+  "createmorecakes.configuration.items": "Item List"
 }

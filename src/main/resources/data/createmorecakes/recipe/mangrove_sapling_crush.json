@@ -2,14 +2,14 @@
   "type": "create:crushing",
   "ingredients": [
     {
-      "item": "minecraft:jungle_sapling"
+      "item": "minecraft:mangrove_propagule"
     }
   ],
   "processing_time": 100,
   "results": [
     {
       "count": 3,
-      "id": "minecraft:jungle_leaves"
+      "id": "minecraft:mangrove_leaves"
     },
     {
       "chance": 0.25,

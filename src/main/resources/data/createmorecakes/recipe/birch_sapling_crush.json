@@ -2,14 +2,14 @@
   "type": "create:crushing",
   "ingredients": [
     {
-      "item": "minecraft:spruce_sapling"
+      "item": "minecraft:birch_sapling"
     }
   ],
   "processing_time": 100,
   "results": [
     {
       "count": 3,
-      "id": "minecraft:spruce_leaves"
+      "id": "minecraft:birch_leaves"
     },
     {
       "chance": 0.25,

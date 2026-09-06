@@ -1,18 +1,29 @@
 {
-  "type": "create:filling",
+  "type": "create:crushing",
   "ingredients": [
     {
-      "item": "minecraft:cobblestone"
-    },
-    {
-      "type": "neoforge:single",
-      "amount": 10,
-      "tag": "minecraft:lava"
+      "item": "minecraft:oak_sapling"
     }
   ],
+  "processing_time": 100,
   "results": [
     {
-      "id": "minecraft:netherrack"
+      "count": 3,
+      "id": "minecraft:oak_leaves"
+    },
+    {
+      "chance": 0.25,
+      "count": 1,
+      "id": "minecraft:apple"
+    },
+    {
+      "count": 3,
+      "id": "minecraft:stick"
+    },
+    {
+      "chance": 0.25,
+      "count": 1,
+      "id": "minecraft:stick"
     }
   ]
 }

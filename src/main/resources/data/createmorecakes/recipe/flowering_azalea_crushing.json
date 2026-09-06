@@ -2,19 +2,19 @@
   "type": "create:crushing",
   "ingredients": [
     {
-      "item": "minecraft:azalea"
+      "item": "minecraft:flowering_azalea"
     }
   ],
   "processing_time": 100,
   "results": [
     {
       "count": 3,
-      "id": "minecraft:azalea_leaves"
+      "id": "minecraft:flowering_azalea_leaves"
     },
     {
       "chance": 0.25,
       "count": 1,
-      "id": "minecraft:apple"
+      "id": "minecraft:glow_berries"
     },
     {
       "chance": 0.25,

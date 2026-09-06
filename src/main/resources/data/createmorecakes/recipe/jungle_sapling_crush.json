@@ -2,19 +2,24 @@
   "type": "create:crushing",
   "ingredients": [
     {
-      "item": "minecraft:spruce_sapling"
+      "item": "minecraft:jungle_sapling"
     }
   ],
   "processing_time": 100,
   "results": [
     {
       "count": 3,
-      "id": "minecraft:spruce_leaves"
+      "id": "minecraft:jungle_leaves"
     },
     {
       "chance": 0.25,
       "count": 1,
-      "id": "minecraft:apple"
+      "id": "minecraft:cocoa_beans"
+    },
+    {
+      "chance": 0.25,
+      "count": 1,
+      "id": "minecraft:vine"
     },
     {
       "count": 3,

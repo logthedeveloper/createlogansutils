@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    " F ",
+    " N "
+  ],
+  "key": {
+    "F": { "tag": "c:fish" },
+    "N": { "item": "minecraft:netherite_block" }
+  },
+  "result": {
+    "id": "createmorecakes:feesh",
+    "count": 1
+  }
+}

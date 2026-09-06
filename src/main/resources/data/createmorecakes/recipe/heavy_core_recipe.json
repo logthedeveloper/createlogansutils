@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FEF",
+    "ECE",
+    "FEF"
+  ],
+  "key": {
+    "E": { "item": "minecraft:lodestone" },
+    "C": { "item": "minecraft:netherite_block" },
+    "F": { "item": "minecraft:diamond_block"}
+  },
+  "result": {
+    "id": "minecraft:heavy_core",
+    "count": 1
+  }
+}

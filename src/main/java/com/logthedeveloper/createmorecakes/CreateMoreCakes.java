@@ -1,9 +1,11 @@
 package com.logthedeveloper.createmorecakes;
 
 import org.slf4j.Logger;
-
+import com.logthedeveloper.createmorecakes.item.CheesyBreadItem;
 import com.logthedeveloper.createmorecakes.item.BlazeMilkCakeItem;
 import com.mojang.logging.LogUtils;
+import com.logthedeveloper.createmorecakes.recipe.ModRecipes;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Item;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -11,8 +13,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.level.block.Blocks;
+import com.logthedeveloper.createmorecakes.item.FeeshItem;
 import net.neoforged.api.distmarker.Dist;
+import net.minecraft.resources.ResourceKey;
+import com.logthedeveloper.createmorecakes.item.MusicDiscItem;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -29,11 +37,41 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 @Mod(CreateMoreCakes.MODID)
 public class CreateMoreCakes {
+
     public static final String MODID = "createmorecakes";
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(Registries.SOUND_EVENT, MODID);
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_BARKFART_SOUND =
+            SOUND_EVENTS.register("music_disc.barkfart",
+                    () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(MODID, "music_disc.barkfart")));
+
+    public static final DeferredItem<MusicDiscItem> MUSIC_DISC_BARKFART = ITEMS.registerItem("music_disc_barkfart",
+            properties -> new MusicDiscItem(properties
+                    .jukeboxPlayable(
+                            ResourceKey.create(Registries.JUKEBOX_SONG,
+                                    ResourceLocation.fromNamespaceAndPath(MODID, "barkfart"))
+                    )
+                    .stacksTo(1)
+                    .component(DataComponents.LORE, new ItemLore(java.util.List.of(
+                            Component.literal("SØLZÉ arr. logtheinsane")
+                    )))
+            ));
+    public static final DeferredItem<Item> SULFUR_DUST = ITEMS.registerSimpleItem("sulfur_dust");
+    public static final DeferredItem<CheesyBreadItem> CHEESY_BREAD = ITEMS.registerItem("cheesy_bread",
+            CheesyBreadItem::new,
+            new Item.Properties().food(
+                    new FoodProperties.Builder()
+                            .nutrition(1)
+                            .saturationModifier(0.1f)
+                            .build()
+            ));
+    public static final DeferredItem<FeeshItem> FEESH = ITEMS.registerItem("feesh",
+            FeeshItem::new,
+            new Item.Properties().attributes(FeeshItem.createFeeshAttributes()));
+    public static final DeferredItem<Item> CHEESE_BOWL = ITEMS.registerSimpleItem("cheese_bowl");
     public static final DeferredItem<BlazeMilkCakeItem> BLAZE_MILK_CAKE = ITEMS.registerItem("blaze_milk_cake",
             BlazeMilkCakeItem::new,
             new Item.Properties().food(
@@ -43,12 +81,18 @@ public class CreateMoreCakes {
                             .build()
             ));
 
+
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATE_MORE_CAKES_TAB = CREATIVE_MODE_TABS.register("createmorecakestab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.createmorecakes"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> BLAZE_MILK_CAKE.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(BLAZE_MILK_CAKE.get());
+                output.accept(SULFUR_DUST.get());
+                output.accept(CHEESE_BOWL.get());
+                output.accept(CHEESY_BREAD.get());
+                output.accept(FEESH.get());
+                output.accept(MUSIC_DISC_BARKFART.get());
             }).build());
 
     public CreateMoreCakes(IEventBus modEventBus, ModContainer modContainer) {
@@ -56,8 +100,11 @@ public class CreateMoreCakes {
 
         modEventBus.addListener(this::commonSetup);
 
+
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
+        SOUND_EVENTS.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -79,11 +126,11 @@ public class CreateMoreCakes {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        // No vanilla tab additions needed right now — your item lives in its own tab above.
+        // creative thing idk
     }
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("HELLO from server starting");
+        LOGGER.info("if you see this, idk");
     }
 }

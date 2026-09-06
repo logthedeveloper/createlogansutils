@@ -2,19 +2,19 @@
   "type": "create:crushing",
   "ingredients": [
     {
-      "item": "minecraft:jungle_sapling"
+      "item": "minecraft:azalea"
     }
   ],
   "processing_time": 100,
   "results": [
     {
       "count": 3,
-      "id": "minecraft:jungle_leaves"
+      "id": "minecraft:azalea_leaves"
     },
     {
       "chance": 0.25,
       "count": 1,
-      "id": "minecraft:apple"
+      "id": "minecraft:glow_berries"
     },
     {
       "chance": 0.25,

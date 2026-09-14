@@ -1,0 +1,6 @@
+{
+  "sound_event": "createlogansutils:music_disc.goldenbrown",
+  "description": { "text": "Golden Brown Disc" },
+  "length_in_seconds": 204,
+  "comparator_output": 11
+}

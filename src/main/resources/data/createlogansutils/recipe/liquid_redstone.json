@@ -1,0 +1,11 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    { "item": "minecraft:redstone_block", "count": 16 },
+    { "item": "create:cinder_flour", "count": 64 }
+  ],
+  "results": [
+    { "id": "createlogansutils:liquid_redstone", "amount": 1000 }
+  ]
+}

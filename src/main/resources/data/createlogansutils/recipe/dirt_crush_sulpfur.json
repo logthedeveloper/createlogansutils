@@ -1,0 +1,25 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:dirt"
+    }
+  ],
+  "processing_time": 100,
+  "results": [
+    {
+      "chance": 0.20,
+      "count": 4,
+      "id": "createlogansutils:sulfur_dust"
+    },
+    {
+      "chance": 0.25,
+      "count": 2,
+      "id": "createlogansutils:sulfur_dust"
+    },
+    {
+      "count": 1,
+      "id": "createlogansutils:sulfur_dust"
+    }
+  ]
+}

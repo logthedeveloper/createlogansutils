@@ -46,7 +46,7 @@ authors="logthedeveloper"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-create mod more cakes
+create mod logans utilities
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

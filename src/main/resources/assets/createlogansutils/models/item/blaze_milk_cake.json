@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "createlogansutils:item/blaze_milk_cake"
+  }
+}

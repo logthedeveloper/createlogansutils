@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:lake",
+  "config": {
+    "fluid": {
+      "type": "minecraft:simple_state_provider",
+      "state": { "Name": "createlogansutils:liquid_redstone" }
+    },
+    "barrier": {
+      "type": "minecraft:simple_state_provider",
+      "state": { "Name": "minecraft:stone" }
+    }
+  }
+}

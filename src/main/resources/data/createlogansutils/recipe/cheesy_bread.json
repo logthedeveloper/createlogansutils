@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    {
+      "item": "createlogansutils:cheese_bowl"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "id": "createlogansutils:cheesy_bread"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:bowl"
+    }
+  ]
+}

@@ -27,6 +27,17 @@ sourceSets.main.resources {
 }
 
 repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
     maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywhel
     maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate (tf is this)
 
@@ -119,6 +130,7 @@ configurations {
 }
 
 dependencies {
+    compileOnly "maven.modrinth:ResbpANg:tivxiPTo"
     implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
     implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")

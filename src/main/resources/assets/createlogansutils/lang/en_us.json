@@ -1,0 +1,17 @@
+{
+  "itemGroup.createlogansutils": "Create: Logan's Utils",
+  "item.createlogansutils.sulfur_dust": "Sulfur Dust",
+  "item.createlogansutils.music_disc_barkfart": "barkfart",
+  "item.createlogansutils.music_disc_goldenbrown": "Golden Brown",
+  "item.createlogansutils.music_disc_aureasol": "Aurea Sol",
+  "item.createlogansutils.blaze_milk_cake": "Milk Cake",
+  "item.createlogansutils.feesh": "FEEEEEEEESH",
+  "fluid.createlogansutils.liquid_redstone": "Liquid Redstone",
+  "item.createlogansutils.liquid_redstone_bucket": "Liquid Redstone Bucket",
+  "item.createlogansutils.cheese_bowl": "Cheese Bowl",
+  "item.createlogansutils.cheesy_bread": "Cheesy Bread",
+  "createlogansutils.configuration.title": "Create: Logan's Utils Configs",
+  "createlogansutils.configuration.section.createlogansutils.common.toml": "Create: Logan's Utils Configs",
+  "createlogansutils.configuration.section.createlogansutils.common.toml.title": "Create: Logan's Utils Configs",
+  "createlogansutils.configuration.items": "Item List"
+}

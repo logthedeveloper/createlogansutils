@@ -1,0 +1,30 @@
+{
+  "music_disc.barkfart": {
+    "sounds": [
+      {
+        "name": "createlogansutils:barkfart",
+        "stream": true,
+        "attenuation_distance": 32
+      }
+    ]
+  },
+
+  "music_disc.goldenbrown": {
+    "sounds": [
+      {
+        "name": "createlogansutils:goldenbrown",
+        "stream": true,
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "music_disc.aureasol": {
+    "sounds": [
+      {
+        "name": "createlogansutils:aureasol",
+        "stream": true,
+        "attenuation_distance": 32
+      }
+    ]
+  }
+}

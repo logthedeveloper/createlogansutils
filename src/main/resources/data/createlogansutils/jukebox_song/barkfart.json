@@ -1,0 +1,6 @@
+{
+  "sound_event": "createlogansutils:music_disc.barkfart",
+  "description": { "text": "Bark Fart Disc" },
+  "length_in_seconds": 23,
+  "comparator_output": 11
+}

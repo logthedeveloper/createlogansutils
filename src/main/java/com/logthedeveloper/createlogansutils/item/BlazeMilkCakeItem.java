@@ -15,11 +15,11 @@ public class BlazeMilkCakeItem extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
-        // Let the base Item handle hunger restoration and shrinking the stack
+
         ItemStack result = super.finishUsingItem(stack, level, entity);
 
         if (!level.isClientSide) {
-            // Clear all current effects, like milk
+
             entity.removeAllEffects();
             // Jump Boost II for 30 seconds (600 ticks). Amplifier 1 = level II.
             entity.addEffect(new MobEffectInstance(MobEffects.JUMP, 600, 1));

@@ -33,7 +33,7 @@ public class ModFluids {
                     CreateLogansUtils.MODID
             );
 
-    // fluid blocks
+    // fluid block
     public static final DeferredRegister.Blocks BLOCKS_FLUID =
             DeferredRegister.createBlocks(CreateLogansUtils.MODID);
 

@@ -1,0 +1,19 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "createlogansutils:cheese_bowl"
+    }
+  ],
+  "processing_time": 100,
+  "results": [
+    {
+      "count": 1,
+      "id": "createlogansutils:cheese_slice"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:bowl"
+    }
+  ]
+}

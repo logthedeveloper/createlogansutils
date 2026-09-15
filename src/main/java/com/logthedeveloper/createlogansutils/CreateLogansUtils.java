@@ -6,9 +6,13 @@ import com.mojang.logging.LogUtils;
 import com.logthedeveloper.createlogansutils.recipe.ModRecipes;
 import com.logthedeveloper.createlogansutils.fluid.ModFluidType;
 import net.minecraft.sounds.SoundEvent;
+
 import net.minecraft.world.item.Item;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.BlockItem;
+import com.logthedeveloper.createlogansutils.block.ModBlocks;
+import com.logthedeveloper.createlogansutils.block.entity.ModBlockEntities;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
@@ -41,6 +45,17 @@ public class CreateLogansUtils {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(Registries.SOUND_EVENT, MODID);
+    public static final DeferredItem<BlockItem> YOUNG_CHEESE_BIN =
+            ITEMS.register("young_cheese_bin", () ->
+                    new BlockItem(ModBlocks.YOUNG_CHEESE_BIN.get(), new Item.Properties()));
+
+    public static final DeferredItem<BlockItem> AGED_CHEESE_BIN =
+            ITEMS.register("aged_cheese_bin", () ->
+                    new BlockItem(ModBlocks.AGED_CHEESE_BIN.get(), new Item.Properties()));
+
+    public static final DeferredItem<BlockItem> BLOCK_OF_CHEESE =
+            ITEMS.register("block_of_cheese", () ->
+                    new BlockItem(ModBlocks.BLOCK_OF_CHEESE.get(), new Item.Properties()));
 
     public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_BARKFART_SOUND =
             SOUND_EVENTS.register("music_disc.barkfart",
@@ -93,6 +108,16 @@ public class CreateLogansUtils {
                             .saturationModifier(0.1f)
                             .build()
             ));
+    public static final DeferredHolder<Item, Item> CHEESE_SLICE = ITEMS.register(
+            "cheese_slice",
+            () -> new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder()
+                            .nutrition(2) // Hunger points (1 hunger shank = 2 nutrition points)
+                            .saturationModifier(0.5f) // Saturation calculation
+                            .build()
+                    )
+            )
+    );
     public static final DeferredItem<FeeshItem> FEESH = ITEMS.registerItem("feesh",
             FeeshItem::new,
             new Item.Properties().attributes(FeeshItem.createFeeshAttributes()));
@@ -116,8 +141,12 @@ public class CreateLogansUtils {
                 output.accept(SULFUR_DUST.get());
                 output.accept(CHEESE_BOWL.get());
                 output.accept(CHEESY_BREAD.get());
+                output.accept(CHEESE_SLICE.get());
                 output.accept(FEESH.get());
                 output.accept(MUSIC_DISC_BARKFART.get());
+                output.accept(YOUNG_CHEESE_BIN.get());
+                output.accept(AGED_CHEESE_BIN.get());
+                output.accept(BLOCK_OF_CHEESE.get());
                 output.accept(MUSIC_DISC_GOLDENBROWN.get());
                 output.accept(MUSIC_DISC_AUREASOL.get());
                 output.accept(ModFluids.LIQUID_REDSTONE_BUCKET.get());
@@ -127,11 +156,13 @@ public class CreateLogansUtils {
         NeoForgeMod.enableMilkFluid();
 
         modEventBus.addListener(this::commonSetup);
-
+        ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         SOUND_EVENTS.register(modEventBus);
         ModRecipes.register(modEventBus);
+
         ModFluids.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);

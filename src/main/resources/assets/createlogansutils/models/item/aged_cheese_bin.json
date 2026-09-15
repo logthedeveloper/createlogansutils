@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "createlogansutils:item/aged_cheese_bin"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 0
+      },
+      "model": "createlogansutils:block/aged_cheese_bin"
+    }
+  ]
+}

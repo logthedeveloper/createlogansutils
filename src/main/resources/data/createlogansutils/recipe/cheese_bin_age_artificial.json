@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "createlogansutils:young_cheese_bin"
+    },
+    {
+      "type": "neoforge:tag",
+      "amount": 1000,
+      "tag": "c:milk"
+    }
+  ],
+  "results": [
+    {
+      "id": "createlogansutils:aged_cheese_bin"
+    }
+  ]
+}

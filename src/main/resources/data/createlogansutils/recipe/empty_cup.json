@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "C C",
+    "C C",
+    "CCC"
+  ],
+  "key": {
+    "C": { "tag": "c:glass_blocks" }
+  },
+  "result": {
+    "id": "createlogansutils:empty_cup",
+    "count": 1
+  }
+}

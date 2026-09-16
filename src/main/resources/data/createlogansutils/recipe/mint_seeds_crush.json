@@ -1,0 +1,20 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "createlogansutils:mint"
+    }
+  ],
+  "processing_time": 100,
+  "results": [
+    {
+      "count": 4,
+      "id": "createlogansutils:mint_seeds"
+    },
+    {
+      "chance": 0.25,
+      "count": 2,
+      "id": "createlogansutils:mint_seeds"
+    }
+  ]
+}

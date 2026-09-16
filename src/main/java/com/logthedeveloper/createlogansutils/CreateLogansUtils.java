@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import com.logthedeveloper.createlogansutils.recipe.ModRecipes;
 import com.logthedeveloper.createlogansutils.fluid.ModFluidType;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.sounds.SoundEvent;
 
 import net.minecraft.world.item.Item;
@@ -56,6 +57,11 @@ public class CreateLogansUtils {
     public static final DeferredItem<BlockItem> BLOCK_OF_CHEESE =
             ITEMS.register("block_of_cheese", () ->
                     new BlockItem(ModBlocks.BLOCK_OF_CHEESE.get(), new Item.Properties()));
+    public static final DeferredItem<ItemNameBlockItem> MINT_SEEDS =
+            ITEMS.register("mint_seeds", () ->
+                    new ItemNameBlockItem(ModBlocks.MINT_CROP.get(), new Item.Properties()));
+    public static final DeferredItem<BlockItem> MINT = ITEMS.register("mint",
+            () -> new BlockItem(ModBlocks.MINT.get(), new Item.Properties()));
 
     public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_BARKFART_SOUND =
             SOUND_EVENTS.register("music_disc.barkfart",
@@ -71,6 +77,7 @@ public class CreateLogansUtils {
                             Component.literal("SØLZÉ arr. logtheinsane")
                     )))
             ));
+
     public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_GOLDENBROWN_SOUND =
             SOUND_EVENTS.register("music_disc.goldenbrown",
                     () -> SoundEvent.createFixedRangeEvent(ResourceLocation.fromNamespaceAndPath(MODID, "music_disc.goldenbrown"), 16.0f));
@@ -100,6 +107,7 @@ public class CreateLogansUtils {
                     )))
             ));
     public static final DeferredItem<Item> SULFUR_DUST = ITEMS.registerSimpleItem("sulfur_dust");
+    public static final DeferredItem<Item> EMPTY_CUP = ITEMS.registerSimpleItem("empty_cup");
     public static final DeferredItem<CheesyBreadItem> CHEESY_BREAD = ITEMS.registerItem("cheesy_bread",
             CheesyBreadItem::new,
             new Item.Properties().food(
@@ -118,6 +126,15 @@ public class CreateLogansUtils {
                     )
             )
     );
+    public static final DeferredItem<MintTeaItem> MINT_TEA = ITEMS.register("mint_tea",
+            () -> new MintTeaItem(new Item.Properties()
+                    .stacksTo(16)
+                    .craftRemainder(EMPTY_CUP.get())
+                    .food(new FoodProperties.Builder()
+                            .alwaysEdible() // Allows drinking even when fully fed
+                            .usingConvertsTo(EMPTY_CUP.get()) // Fallback return item
+                            .build())
+            ));
     public static final DeferredItem<FeeshItem> FEESH = ITEMS.registerItem("feesh",
             FeeshItem::new,
             new Item.Properties().attributes(FeeshItem.createFeeshAttributes()));
@@ -147,9 +164,15 @@ public class CreateLogansUtils {
                 output.accept(YOUNG_CHEESE_BIN.get());
                 output.accept(AGED_CHEESE_BIN.get());
                 output.accept(BLOCK_OF_CHEESE.get());
+                output.accept(MINT.get());
+                output.accept(EMPTY_CUP.get());
+                output.accept(MINT_TEA.get());
+                output.accept(MINT_SEEDS.get());
                 output.accept(MUSIC_DISC_GOLDENBROWN.get());
                 output.accept(MUSIC_DISC_AUREASOL.get());
                 output.accept(ModFluids.LIQUID_REDSTONE_BUCKET.get());
+                output.accept(ModFluids.LIQUID_CHEESE_BUCKET.get());
+                output.accept(ModFluids.LIQUID_MINT_BUCKET.get());
             }).build());
 
     public CreateLogansUtils(IEventBus modEventBus, ModContainer modContainer) {

@@ -1,7 +1,8 @@
 {
   "feature": "createlogansutils:redstone_pool",
   "placement": [
-    { "type": "minecraft:rarity_filter", "chance": 1 },
+    { "type": "minecraft:rarity_filter", "chance": 2 },
+    { "type": "minecraft:rarity_filter", "chance": 32 },
     { "type": "minecraft:in_square" },
     {
       "type": "minecraft:height_range",

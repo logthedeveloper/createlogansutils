@@ -38,12 +38,10 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
-    maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywhel
-    maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate (tf is this)
-
-    // Add here additional repositories if required by some of the dependencies below.
+    // Add official DevAuth repository
+    maven { url = "https://maven.createmod.net" }
+    maven { url = "https://maven.ithundxr.dev/snapshots" }
 }
-
 base {
     archivesName = mod_id
 }
@@ -69,7 +67,8 @@ neoForge {
         client {
             client()
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            programArgument("--username=Playzer100")
+            systemProperty 'devauth.enabled', '1'
         }
 
         server {

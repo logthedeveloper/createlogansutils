@@ -1,0 +1,14 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "fluid": "createlogansutils:liquid_cheese",
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "item": "createlogansutils:block_of_cheese"
+    }
+  ]
+}

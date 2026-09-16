@@ -19,7 +19,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 public class ModFluids {
 
-    // fuid types
+    // fluid types
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(
                     NeoForgeRegistries.Keys.FLUID_TYPES,
@@ -33,7 +33,7 @@ public class ModFluids {
                     CreateLogansUtils.MODID
             );
 
-    // fluid block
+    // fluid blocks
     public static final DeferredRegister.Blocks BLOCKS_FLUID =
             DeferredRegister.createBlocks(CreateLogansUtils.MODID);
 
@@ -42,9 +42,7 @@ public class ModFluids {
             DeferredRegister.createItems(CreateLogansUtils.MODID);
 
 
-
-    // liquiod redstone fluid type
-
+    // redstone
 
     public static final DeferredHolder<FluidType, FluidType> LIQUID_REDSTONE_TYPE =
             FLUID_TYPES.register("liquid_redstone", () -> new ModFluidType(
@@ -70,16 +68,13 @@ public class ModFluids {
                             )
             ));
 
-
-    //liquid redstone fludis
-
     public static final DeferredHolder<
             net.minecraft.world.level.material.Fluid,
             BaseFlowingFluid.Source
             > LIQUID_REDSTONE_SOURCE =
             FLUIDS.register(
                     "liquid_redstone",
-                    () -> new BaseFlowingFluid.Source(getProperties())
+                    () -> new BaseFlowingFluid.Source(getRedstoneProperties())
             );
 
     public static final DeferredHolder<
@@ -88,11 +83,8 @@ public class ModFluids {
             > LIQUID_REDSTONE_FLOWING =
             FLUIDS.register(
                     "flowing_liquid_redstone",
-                    () -> new BaseFlowingFluid.Flowing(getProperties())
+                    () -> new BaseFlowingFluid.Flowing(getRedstoneProperties())
             );
-
-
-    // liquid redstone bolck
 
     public static final DeferredBlock<LiquidBlock> LIQUID_REDSTONE_BLOCK =
             BLOCKS_FLUID.register(
@@ -108,9 +100,6 @@ public class ModFluids {
                     )
             );
 
-
-    // bucket o liccy redstone
-
     public static final DeferredItem<BucketItem> LIQUID_REDSTONE_BUCKET =
             ITEMS_FLUID.register(
                     "liquid_redstone_bucket",
@@ -122,10 +111,7 @@ public class ModFluids {
                     )
             );
 
-
-    // props for the flooid
-
-    private static BaseFlowingFluid.Properties getProperties() {
+    private static BaseFlowingFluid.Properties getRedstoneProperties() {
         return new BaseFlowingFluid.Properties(
                 LIQUID_REDSTONE_TYPE,
                 LIQUID_REDSTONE_SOURCE,
@@ -136,7 +122,162 @@ public class ModFluids {
     }
 
 
-    // registering shi
+    // ches
+
+    public static final DeferredHolder<FluidType, FluidType> LIQUID_CHEESE_TYPE =
+            FLUID_TYPES.register("liquid_cheese", () -> new ModFluidType(
+                    FluidType.Properties.create()
+                            .descriptionId("fluid.createlogansutils.liquid_cheese")
+                            .canSwim(false)
+                            .canDrown(true)
+                            .canPushEntity(true)
+                            .canExtinguish(false)
+                            .canConvertToSource(false)
+                            .supportsBoating(false)
+                            .density(13000)
+                            .viscosity(13500)
+                            .temperature(2000)
+                            .lightLevel(10)
+                            .sound(
+                                    SoundActions.BUCKET_FILL,
+                                    SoundEvents.BUCKET_FILL
+                            )
+                            .sound(
+                                    SoundActions.BUCKET_EMPTY,
+                                    SoundEvents.BUCKET_EMPTY
+                            )
+            ));
+
+
+    public static final DeferredHolder<
+            net.minecraft.world.level.material.Fluid,
+            LiquidCheeseFluid.Source
+            > LIQUID_CHEESE_SOURCE =
+            FLUIDS.register(
+                    "liquid_cheese",
+                    () -> new LiquidCheeseFluid.Source(getCheeseProperties())
+            );
+
+    public static final DeferredHolder<
+            net.minecraft.world.level.material.Fluid,
+            LiquidCheeseFluid.Flowing
+            > LIQUID_CHEESE_FLOWING =
+            FLUIDS.register(
+                    "flowing_liquid_cheese",
+                    () -> new LiquidCheeseFluid.Flowing(getCheeseProperties())
+            );
+
+    public static final DeferredBlock<LiquidBlock> LIQUID_CHEESE_BLOCK =
+            BLOCKS_FLUID.register(
+                    "liquid_cheese",
+                    () -> new LiquidBlock(
+                            LIQUID_CHEESE_SOURCE.get(),
+                            BlockBehaviour.Properties.of()
+                                    .mapColor(MapColor.COLOR_YELLOW)
+                                    .noCollission()
+                                    .replaceable()
+                                    .noLootTable()
+                                    .lightLevel(state -> 10)
+                    )
+            );
+
+    public static final DeferredItem<BucketItem> LIQUID_CHEESE_BUCKET =
+            ITEMS_FLUID.register(
+                    "liquid_cheese_bucket",
+                    () -> new BucketItem(
+                            LIQUID_CHEESE_SOURCE.get(),
+                            new Item.Properties()
+                                    .craftRemainder(net.minecraft.world.item.Items.BUCKET)
+                                    .stacksTo(1)
+                    )
+            );
+
+    private static BaseFlowingFluid.Properties getCheeseProperties() {
+        return new BaseFlowingFluid.Properties(
+                LIQUID_CHEESE_TYPE,
+                LIQUID_CHEESE_SOURCE,
+                LIQUID_CHEESE_FLOWING
+        )
+                .bucket(LIQUID_CHEESE_BUCKET)
+                .block(LIQUID_CHEESE_BLOCK);
+    }
+// mint
+
+    public static final DeferredHolder<FluidType, FluidType> LIQUID_MINT_TYPE =
+            FLUID_TYPES.register("liquid_mint", () -> new ModFluidType(
+                    FluidType.Properties.create()
+                            .descriptionId("fluid.createlogansutils.liquid_mint")
+                            .canSwim(true)
+                            .canDrown(true)
+                            .canPushEntity(true)
+                            .canExtinguish(true)
+                            .canConvertToSource(false)
+                            .supportsBoating(false)
+                            .density(1000)
+                            .viscosity(1000)
+                            .temperature(280)
+                            .sound(
+                                    SoundActions.BUCKET_FILL,
+                                    SoundEvents.BUCKET_FILL
+                            )
+                            .sound(
+                                    SoundActions.BUCKET_EMPTY,
+                                    SoundEvents.BUCKET_EMPTY
+                            )
+            ));
+
+    public static final DeferredHolder<
+    net.minecraft.world.level.material.Fluid,
+    BaseFlowingFluid.Source
+        > LIQUID_MINT_SOURCE =
+            FLUIDS.register(
+            "liquid_mint",
+            () -> new BaseFlowingFluid.Source(getMintProperties())
+            );
+
+    public static final DeferredHolder<
+    net.minecraft.world.level.material.Fluid,
+    BaseFlowingFluid.Flowing
+        > LIQUID_MINT_FLOWING =
+            FLUIDS.register(
+            "flowing_liquid_mint",
+            () -> new BaseFlowingFluid.Flowing(getMintProperties())
+            );
+
+    public static final DeferredBlock<LiquidBlock> LIQUID_MINT_BLOCK =
+            BLOCKS_FLUID.register(
+                    "liquid_mint",
+                    () -> new LiquidBlock(
+                            LIQUID_MINT_SOURCE.get(),
+                            BlockBehaviour.Properties.of()
+                                    .mapColor(MapColor.COLOR_GREEN)
+                                    .noCollission()
+                                    .replaceable()
+                                    .noLootTable()
+                    )
+            );
+
+    public static final DeferredItem<BucketItem> LIQUID_MINT_BUCKET =
+            ITEMS_FLUID.register(
+                    "liquid_mint_bucket",
+                    () -> new BucketItem(
+                            LIQUID_MINT_SOURCE.get(),
+                            new Item.Properties()
+                                    .craftRemainder(net.minecraft.world.item.Items.BUCKET)
+                                    .stacksTo(1)
+                    )
+            );
+
+    private static BaseFlowingFluid.Properties getMintProperties() {
+        return new BaseFlowingFluid.Properties(
+                LIQUID_MINT_TYPE,
+                LIQUID_MINT_SOURCE,
+                LIQUID_MINT_FLOWING
+        )
+                .bucket(LIQUID_MINT_BUCKET)
+                .block(LIQUID_MINT_BLOCK);
+    }
+    // reg
 
     public static void register(IEventBus modEventBus) {
         FLUID_TYPES.register(modEventBus);

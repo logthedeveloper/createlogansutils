@@ -28,9 +28,11 @@ public class CreateLogansUtilsClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         CreateLogansUtils.LOGGER.info("HELLO FROM CLIENT SETUP");
+
         CreateLogansUtils.LOGGER.info(
                 "MINECRAFT NAME >> {}",
                 Minecraft.getInstance().getUser().getName()
+
         );
     }
 }

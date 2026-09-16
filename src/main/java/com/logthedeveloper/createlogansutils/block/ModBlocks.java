@@ -35,6 +35,24 @@ public class ModBlocks {
                             .strength(1.0F)
                             .sound(SoundType.SLIME_BLOCK)
             ));
+    public static final DeferredBlock<MintBlock> MINT =
+            BLOCKS.register("mint", () -> new MintBlock(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.PLANT)
+                            .noCollission()
+                            .instabreak()
+                            .sound(SoundType.GRASS)
+                            .offsetType(BlockBehaviour.OffsetType.XZ)
+            ));
+    public static final DeferredBlock<MintCropBlock> MINT_CROP =
+            BLOCKS.register("mint_crop", () -> new MintCropBlock(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.PLANT)
+                            .noCollission()
+                            .instabreak()
+                            .sound(SoundType.CROP)
+                            .randomTicks()
+            ));
 
 
     public static void register(IEventBus modEventBus) {

@@ -9,6 +9,7 @@
   "block.createlogansutils.mint": "Mint",
   "item.createlogansutils.mint_seeds": "Mint Seeds",
   "fluid.createlogansutils.liquid_redstone": "Liquid Redstone",
+  "block.createlogansutils.liquid_redstone": "Liquid Redstone",
   "fluid.createlogansutils.liquid_mint": "Mint (Liquid)",
   "fluid.createlogansutils.liquid_cheese": "Liquid Cheese",
   "item.createlogansutils.liquid_redstone_bucket": "Liquid Redstone Bucket",

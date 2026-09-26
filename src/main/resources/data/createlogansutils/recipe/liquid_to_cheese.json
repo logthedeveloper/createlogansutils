@@ -1,6 +1,9 @@
 {
-  "type": "create:compacting",
+  "type": "create:filling",
   "ingredients": [
+    {
+      "item": "minecraft:composter"
+    },
     {
       "fluid": "createlogansutils:liquid_cheese",
       "amount": 1000
@@ -8,7 +11,7 @@
   ],
   "results": [
     {
-      "item": "createlogansutils:block_of_cheese"
+      "item": "createlogansutils:cheese_block"
     }
   ]
 }

@@ -1,0 +1,24 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "CAAAAAAAC",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAABAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "CAAAAAAAC"
+  ],
+  "key": {
+    "A": { "item": "createlogansutils:lava_component_2" },
+    "B": { "item": "create:brass_casing" },
+    "C": { "item": "create:fluid_tank" }
+  },
+  "result": {
+    "id": "createlogansutils:infinite_lava_source",
+    "count": 1
+  },
+  "accept_mirrored": true
+}

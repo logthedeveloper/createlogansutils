@@ -3,11 +3,26 @@
   "config": {
     "fluid": {
       "type": "minecraft:simple_state_provider",
-      "state": { "Name": "createlogansutils:liquid_redstone" }
+      "state": {
+        "Name": "createlogansutils:liquid_redstone"
+      }
     },
     "barrier": {
-      "type": "minecraft:simple_state_provider",
-      "state": { "Name": "minecraft:stone" }
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 9,
+          "data": {
+            "Name": "minecraft:stone"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:redstone_block"
+          }
+        }
+      ]
     }
   }
 }

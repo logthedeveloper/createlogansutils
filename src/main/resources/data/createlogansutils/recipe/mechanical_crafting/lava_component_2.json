@@ -1,0 +1,22 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA"
+  ],
+  "key": {
+    "A": { "item": "createlogansutils:lava_component_1" }
+  },
+  "result": {
+    "id": "createlogansutils:lava_component_2",
+    "count": 1
+  },
+  "accept_mirrored": true
+}

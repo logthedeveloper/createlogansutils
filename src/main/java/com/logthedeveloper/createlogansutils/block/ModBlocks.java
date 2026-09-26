@@ -6,6 +6,8 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
+import com.logthedeveloper.createlogansutils.block.InfiniteLavaSourceBlock;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -28,6 +30,13 @@ public class ModBlocks {
                             .strength(0.6F)
                             .sound(SoundType.WOOD)
                             .noOcclusion()));
+    public static final DeferredBlock<InfiniteLavaSourceBlock> INFINITE_LAVA_SOURCE =
+            BLOCKS.register("infinite_lava_source", () -> new InfiniteLavaSourceBlock(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.NETHER)
+                            .strength(2.0f)
+                            .lightLevel(state -> 15)
+            ));
 
     public static final DeferredBlock<Block> BLOCK_OF_CHEESE =
             BLOCKS.registerBlock("block_of_cheese", properties -> new Block(
@@ -35,15 +44,15 @@ public class ModBlocks {
                             .strength(1.0F)
                             .sound(SoundType.SLIME_BLOCK)
             ));
-    public static final DeferredBlock<MintBlock> MINT =
-            BLOCKS.register("mint", () -> new MintBlock(
-                    BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.PLANT)
-                            .noCollission()
-                            .instabreak()
-                            .sound(SoundType.GRASS)
-                            .offsetType(BlockBehaviour.OffsetType.XZ)
-            ));
+    public static final DeferredBlock<MintBlock> MINT = BLOCKS.register("mint",
+            () -> new MintBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollission()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .pushReaction(PushReaction.DESTROY)
+            )
+    );
     public static final DeferredBlock<MintCropBlock> MINT_CROP =
             BLOCKS.register("mint_crop", () -> new MintCropBlock(
                     BlockBehaviour.Properties.of()

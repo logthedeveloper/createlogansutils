@@ -29,6 +29,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
+import com.logthedeveloper.createlogansutils.datagen.DataGenerators;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.NeoForgeMod;
@@ -54,6 +55,7 @@ public class CreateLogansUtils {
             ITEMS.register("aged_cheese_bin", () ->
                     new BlockItem(ModBlocks.AGED_CHEESE_BIN.get(), new Item.Properties()));
 
+
     public static final DeferredItem<BlockItem> BLOCK_OF_CHEESE =
             ITEMS.register("block_of_cheese", () ->
                     new BlockItem(ModBlocks.BLOCK_OF_CHEESE.get(), new Item.Properties()));
@@ -63,7 +65,7 @@ public class CreateLogansUtils {
     public static final DeferredItem<BlockItem> MINT = ITEMS.register("mint",
             () -> new BlockItem(ModBlocks.MINT.get(), new Item.Properties()));
 
-    public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_BARKFART_SOUND =
+   /*  public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_BARKFART_SOUND =
             SOUND_EVENTS.register("music_disc.barkfart",
                     () -> SoundEvent.createFixedRangeEvent(ResourceLocation.fromNamespaceAndPath(MODID, "music_disc.barkfart"), 16.0f));
     public static final DeferredItem<MusicDiscItem> MUSIC_DISC_BARKFART = ITEMS.registerItem("music_disc_barkfart",
@@ -105,8 +107,11 @@ public class CreateLogansUtils {
                     .component(DataComponents.LORE, new ItemLore(java.util.List.of(
                             Component.literal("Delta")
                     )))
-            ));
+            )); */
     public static final DeferredItem<Item> SULFUR_DUST = ITEMS.registerSimpleItem("sulfur_dust");
+    public static final DeferredItem<Item> LAVA_COMPONENT_1 = ITEMS.registerSimpleItem("lava_component_1");
+    public static final DeferredItem<Item> LAVA_COMPONENT_2 = ITEMS.registerSimpleItem("lava_component_2");
+
     public static final DeferredItem<Item> EMPTY_CUP = ITEMS.registerSimpleItem("empty_cup");
     public static final DeferredItem<CheesyBreadItem> CHEESY_BREAD = ITEMS.registerItem("cheesy_bread",
             CheesyBreadItem::new,
@@ -135,6 +140,9 @@ public class CreateLogansUtils {
                             .usingConvertsTo(EMPTY_CUP.get()) // Fallback return item
                             .build())
             ));
+    public static final DeferredItem<BlockItem> INFINITE_LAVA_SOURCE =
+            ITEMS.register("infinite_lava_source", () ->
+                    new BlockItem(ModBlocks.INFINITE_LAVA_SOURCE.get(), new Item.Properties()));
     public static final DeferredItem<FeeshItem> FEESH = ITEMS.registerItem("feesh",
             FeeshItem::new,
             new Item.Properties().attributes(FeeshItem.createFeeshAttributes()));
@@ -160,16 +168,21 @@ public class CreateLogansUtils {
                 output.accept(CHEESY_BREAD.get());
                 output.accept(CHEESE_SLICE.get());
                 output.accept(FEESH.get());
-                output.accept(MUSIC_DISC_BARKFART.get());
+                // output.accept(MUSIC_DISC_BARKFART.get());
                 output.accept(YOUNG_CHEESE_BIN.get());
                 output.accept(AGED_CHEESE_BIN.get());
+                output.accept(LAVA_COMPONENT_1.get());
+                output.accept(LAVA_COMPONENT_2.get());
                 output.accept(BLOCK_OF_CHEESE.get());
                 output.accept(MINT.get());
                 output.accept(EMPTY_CUP.get());
+                if (Config.ENABLE_INFINITE_LAVA_SOURCE.get()) {
+                    output.accept(INFINITE_LAVA_SOURCE.get());
+                }
                 output.accept(MINT_TEA.get());
                 output.accept(MINT_SEEDS.get());
-                output.accept(MUSIC_DISC_GOLDENBROWN.get());
-                output.accept(MUSIC_DISC_AUREASOL.get());
+                // output.accept(MUSIC_DISC_GOLDENBROWN.get());
+                // output.accept(MUSIC_DISC_AUREASOL.get());
                 output.accept(ModFluids.LIQUID_REDSTONE_BUCKET.get());
                 output.accept(ModFluids.LIQUID_CHEESE_BUCKET.get());
                 output.accept(ModFluids.LIQUID_MINT_BUCKET.get());
@@ -179,12 +192,15 @@ public class CreateLogansUtils {
         NeoForgeMod.enableMilkFluid();
 
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(DataGenerators::gatherData);
+
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         SOUND_EVENTS.register(modEventBus);
         ModRecipes.register(modEventBus);
+        modEventBus.addListener(ModCapabilities::register);
 
         ModFluids.register(modEventBus);
 
@@ -196,15 +212,12 @@ public class CreateLogansUtils {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        LOGGER.info("HELLO FROM COMMON SETUP");
+        LOGGER.info("bonjour");
 
-        if (Config.LOG_DIRT_BLOCK.getAsBoolean()) {
-            LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
-        }
 
-        LOGGER.info("{}{}", Config.MAGIC_NUMBER_INTRODUCTION.get(), Config.MAGIC_NUMBER.getAsInt());
 
-        Config.ITEM_STRINGS.get().forEach((item) -> LOGGER.info("ITEM >> {}", item));
+
+
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

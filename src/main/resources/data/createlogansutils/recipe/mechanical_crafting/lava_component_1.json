@@ -1,0 +1,22 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA",
+    "AAAAAAAAA"
+  ],
+  "key": {
+    "A": { "item": "minecraft:lava_bucket" }
+  },
+  "result": {
+    "id": "createlogansutils:lava_component_1",
+    "count": 1
+  },
+  "accept_mirrored": true
+}

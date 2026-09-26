@@ -7,6 +7,9 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.minecraft.client.renderer.BiomeColors;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import com.logthedeveloper.createlogansutils.block.ModBlocks;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
@@ -18,6 +21,7 @@ public class CreateLogansUtilsClient {
 
     public CreateLogansUtilsClient(IEventBus modEventBus, ModContainer container) {
         modEventBus.addListener(ModFluidClientExtensions::registerClientExtensions);
+        modEventBus.addListener(ModCapabilities::register);
 
         container.registerExtensionPoint(
                 IConfigScreenFactory.class,
@@ -32,7 +36,17 @@ public class CreateLogansUtilsClient {
         CreateLogansUtils.LOGGER.info(
                 "MINECRAFT NAME >> {}",
                 Minecraft.getInstance().getUser().getName()
+        );
+    }
 
+    @SubscribeEvent
+    public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
+        event.register(
+                (state, level, pos, tintIndex) ->
+                        level != null && pos != null
+                                ? BiomeColors.getAverageGrassColor(level, pos)
+                                : -1,
+                ModBlocks.MINT.get()
         );
     }
 }

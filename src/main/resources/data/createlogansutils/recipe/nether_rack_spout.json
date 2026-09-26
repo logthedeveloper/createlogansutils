@@ -6,8 +6,8 @@
     },
     {
       "type": "neoforge:single",
-      "amount": 10,
-      "tag": "minecraft:lava"
+      "amount": 20,
+      "fluid": "minecraft:lava"
     }
   ],
   "results": [

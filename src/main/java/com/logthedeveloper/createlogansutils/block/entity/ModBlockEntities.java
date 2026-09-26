@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import com.logthedeveloper.createlogansutils.block.entity.InfiniteLavaSourceBlockEntity;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -17,6 +18,9 @@ public class ModBlockEntities {
                     YoungCheeseBinBlockEntity::new,
                     ModBlocks.YOUNG_CHEESE_BIN.get()
             ).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InfiniteLavaSourceBlockEntity>> INFINITE_LAVA_SOURCE =
+            BLOCK_ENTITIES.register("infinite_lava_source",
+                    () -> BlockEntityType.Builder.of(InfiniteLavaSourceBlockEntity::new, ModBlocks.INFINITE_LAVA_SOURCE.get()).build(null));
 
     public static void register(IEventBus modEventBus) {
         BLOCK_ENTITIES.register(modEventBus);

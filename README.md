@@ -1,6 +1,7 @@
 # Create: Logans Utils
-**Create: Logans Utils** adds a munch of things I whish were in base create along with other things.
-
+**Create: Logans Utils** adds a munch of things I whish were in base create along with other things. <br>
+<a title="Modrinth" target="_blank" href="https://modrinth.com/mod/create-logans-utils"><img src="https://img.shields.io/modrinth/dt/gubXTX05?style=flat&label=Modrinth"></a> 
+<a title="CurseForge" target="_blank" href="https://www.curseforge.com/minecraft/mc-mods/create-logans-utils"><img src="https://img.shields.io/curseforge/dt/1697689?style=flat&label=CurseForge"></a>
 ### Full Content List
 - **Blaze Milk Cake** has the effect of milk. Spout milk into blaze cake base.
 - **Sulfur Dust** used to craft gunpowder. Crushed dirt gives you this powder. spout lava to make gunpowder

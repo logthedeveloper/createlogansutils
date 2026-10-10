@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "createlogansutils:block/stripped_redstone_wood"
+    },
+    "axis=z": {
+      "model": "createlogansutils:block/stripped_redstone_wood",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "createlogansutils:block/stripped_redstone_wood",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

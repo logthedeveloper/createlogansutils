@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "createlogansutils:block/redstone_planks",
+    "top": "createlogansutils:block/redstone_planks",
+    "side": "createlogansutils:block/redstone_planks"
+  }
+}

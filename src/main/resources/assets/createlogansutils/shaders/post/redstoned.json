@@ -1,0 +1,19 @@
+{
+  "targets": [ "swap" ],
+  "passes": [
+    {
+      "name": "createlogansutils:redstoned",
+      "intarget": "minecraft:main",
+      "outtarget": "swap",
+      "uniforms": [
+        { "name": "Time", "values": [ 0.0 ] },
+        { "name": "Intensity", "values": [ 1.0 ] }
+      ]
+    },
+    {
+      "vertex": "blit",
+      "intarget": "swap",
+      "outtarget": "minecraft:main"
+    }
+  ]
+}

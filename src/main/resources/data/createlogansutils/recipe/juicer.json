@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    " F ",
+    " G "
+  ],
+  "key": {
+    "E": { "item": "create:shaft" },
+    "F": { "item": "create:andesite_casing"},
+    "G": { "item": "createlogansutils:basket"}
+  },
+  "result": {
+    "id": "createlogansutils:mechanical_juicer",
+    "count": 1
+  }
+}

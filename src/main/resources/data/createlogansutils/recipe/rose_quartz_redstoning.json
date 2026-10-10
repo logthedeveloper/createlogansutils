@@ -1,5 +1,6 @@
 {
-  "type": "createlogansutils:bulk_redstoning",
+  "type": "createlogansutils:fluid_conversion",
   "ingredient": { "item": "minecraft:quartz" },
-  "result": { "id": "create:rose_quartz", "count": 1 }
+  "fluid": "createlogansutils:liquid_redstone",
+  "result": { "id": "create:rose_quartz" }
 }

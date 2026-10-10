@@ -22,6 +22,27 @@ public class ModBlockLootSubProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+        dropSelf(ModBlocks.REDSTONE_DIRT.get());
+        add(ModBlocks.REDSTONE_GRASS.get(),
+                b -> createSingleItemTableWithSilkTouch(b, ModBlocks.REDSTONE_DIRT.get()));
+        dropSelf(ModBlocks.REDSTONE_LOG.get());
+        dropSelf(ModBlocks.STRIPPED_REDSTONE_LOG.get());
+        dropSelf(ModBlocks.REDSTONE_WOOD.get());
+        dropSelf(ModBlocks.STRIPPED_REDSTONE_WOOD.get());
+        dropSelf(ModBlocks.REDSTONE_PLANKS.get());
+        dropSelf(ModBlocks.REDSTONE_STAIRS.get());
+        add(ModBlocks.REDSTONE_SLAB.get(), this::createSlabItemTable);
+        dropSelf(ModBlocks.REDSTONE_FENCE.get());
+        dropSelf(ModBlocks.REDSTONE_FENCE_GATE.get());
+        add(ModBlocks.REDSTONE_DOOR.get(), this::createDoorTable);
+        dropSelf(ModBlocks.REDSTONE_TRAPDOOR.get());
+        dropSelf(ModBlocks.REDSTONE_BUTTON.get());
+        dropSelf(ModBlocks.REDSTONE_PRESSURE_PLATE.get());
+        dropSelf(ModBlocks.REDSTONE_SIGN.get());
+        dropSelf(ModBlocks.REDSTONE_HANGING_SIGN.get());
+        dropSelf(ModBlocks.REDSTONE_SAPLING.get());
+        add(ModBlocks.REDSTONE_LEAVES.get(), b -> createLeavesDrops(
+                b, ModBlocks.REDSTONE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         // Normal blocks drop themselves
         this.dropSelf(ModBlocks.YOUNG_CHEESE_BIN.get());
         this.dropSelf(ModBlocks.AGED_CHEESE_BIN.get());
@@ -47,4 +68,5 @@ public class ModBlockLootSubProvider extends BlockLootSubProvider {
                 .map(DeferredHolder::value)
                 .collect(Collectors.toList());
     }
+
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FEF",
+    " F ",
+    "   "
+  ],
+  "key": {
+    "E": { "item": "create:iron_sheet" },
+    "F": { "item": "create:andesite_alloy"}
+  },
+  "result": {
+    "id": "createlogansutils:basket",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south": { "model": "createlogansutils:block/mechanical_juicer/block" },
+    "facing=west":  { "model": "createlogansutils:block/mechanical_juicer/block", "y": 90 },
+    "facing=north": { "model": "createlogansutils:block/mechanical_juicer/block", "y": 180 },
+    "facing=east":  { "model": "createlogansutils:block/mechanical_juicer/block", "y": 270 }
+  }
+}

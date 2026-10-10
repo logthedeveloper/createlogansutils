@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "createlogansutils:block/redstone_dirt"
+    }
+  }
+}

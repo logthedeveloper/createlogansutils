@@ -6,10 +6,6 @@
       "item": "minecraft:sugar"
     }
   ],
-  "results": [
-    {
-      "count": 1,
-      "id": "fluid:honey"
-    }
-  ]
+  "results": [ { "id": "create:honey", "amount": 250 } ]
+
 }

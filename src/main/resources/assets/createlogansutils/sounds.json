@@ -1,0 +1,10 @@
+{
+  "mechanical_juicer_hit": {
+    "subtitle": "subtitles.createlogansutils.mechanical_juicer_hit",
+    "sounds": [
+      "createlogansutils:juicer_hit1",
+      "createlogansutils:juicer_hit2",
+      "createlogansutils:juicer_hit3"
+    ]
+  }
+}

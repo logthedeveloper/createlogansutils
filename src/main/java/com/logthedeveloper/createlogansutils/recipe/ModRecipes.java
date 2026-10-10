@@ -22,17 +22,16 @@ public class ModRecipes {
             DeferredRegister.create(Registries.RECIPE_SERIALIZER, CreateLogansUtils.MODID);
     public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS =
             DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, CreateLogansUtils.MODID);
-
-    public static final DeferredHolder<RecipeType<?>, RecipeType<BulkRedstoningRecipe>> BULK_REDSTONING_TYPE =
-            RECIPE_TYPES.register("bulk_redstoning", () -> new RecipeType<BulkRedstoningRecipe>() {
-                @Override
-                public String toString() {
-                    return "createlogansutils:bulk_redstoning";
-                }
+    public static final DeferredHolder<RecipeType<?>, RecipeType<FluidConversionRecipe>> FLUID_CONVERSION_TYPE =
+            RECIPE_TYPES.register("fluid_conversion", () -> new RecipeType<FluidConversionRecipe>() {
+                @Override public String toString() { return "createlogansutils:fluid_conversion"; }
             });
 
-    public static final DeferredHolder<RecipeSerializer<?>, BulkRedstoningRecipe.Serializer> BULK_REDSTONING_SERIALIZER =
-            RECIPE_SERIALIZERS.register("bulk_redstoning", BulkRedstoningRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, FluidConversionRecipeSerializer> FLUID_CONVERSION_SERIALIZER =
+            RECIPE_SERIALIZERS.register("fluid_conversion", () -> FluidConversionRecipeSerializer.INSTANCE);
+
+
+
 
     public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<MusicDiscLootModifier>> MUSIC_DISC_LOOT_MODIFIER =
             LOOT_MODIFIER_SERIALIZERS.register("music_disc_barkfart", () -> MusicDiscLootModifier.CODEC);
@@ -41,15 +40,8 @@ public class ModRecipes {
         RECIPE_TYPES.register(modEventBus);
         RECIPE_SERIALIZERS.register(modEventBus);
         LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
-        modEventBus.addListener(ModRecipes::onRegisterFanProcessingTypes);
+
     }
 
-    public static void onRegisterFanProcessingTypes(RegisterEvent event) {
-        event.register(CreateRegistries.FAN_PROCESSING_TYPE, helper -> {
-            helper.register(
-                    ResourceLocation.fromNamespaceAndPath(CreateLogansUtils.MODID, "bulk_redstoning"),
-                    new BulkRedstoningType()
-            );
-        });
+
     }
-}

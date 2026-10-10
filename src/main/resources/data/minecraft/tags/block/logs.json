@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "createlogansutils:redstone_log",
+    "createlogansutils:stripped_redstone_log",
+    "createlogansutils:redstone_wood",
+    "createlogansutils:stripped_redstone_wood"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "createlogansutils:item/redstone_cigarette_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "createlogansutils:item/redstone_cigarette_flat"
+    },
+    "ground": {
+      "parent": "createlogansutils:item/redstone_cigarette_flat"
+    },
+    "fixed": {
+      "parent": "createlogansutils:item/redstone_cigarette_flat"
+    }
+  }
+}

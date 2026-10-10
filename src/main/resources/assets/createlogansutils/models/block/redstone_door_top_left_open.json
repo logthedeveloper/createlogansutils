@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "createlogansutils:block/redstone_door_bottom",
+    "top": "createlogansutils:block/redstone_door_top"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "createlogansutils:juicing",
+  "ingredients": [
+    { "item": "createlogansutils:mint" },
+    { "item": "createlogansutils:mint" }
+  ],
+  "results": [
+    { "id": "createlogansutils:liquid_mint", "amount": 250 }
+  ]
+}

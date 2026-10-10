@@ -27,6 +27,9 @@ sourceSets.main.resources {
 }
 
 repositories {
+    maven { url = "https://maven.minecraftforge.net/" }
+    maven { url = 'https://maven.blamejared.com' } // JEI
+    maven { url = 'https://maven.terraformersmc.com/' } // EMI
     exclusiveContent {
         forRepository {
             maven {
@@ -129,12 +132,20 @@ configurations {
 }
 
 dependencies {
+    implementation "com.github.glitchfiend:TerraBlender-neoforge:1.21.1-4.1.0.8"
     compileOnly "maven.modrinth:ResbpANg:tivxiPTo"
     implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
     implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+    // JEI — verify version for your MC/NeoForge combo
+    compileOnly "mezz.jei:jei-1.21.1-neoforge-api:19.21.0.246"
+    runtimeOnly "mezz.jei:jei-1.21.1-neoforge:19.21.0.246"
+
+    // EMI — verify version
+    compileOnly "dev.emi:emi-neoforge:1.1.22+1.21.1:api"
+    runtimeOnly "dev.emi:emi-neoforge:1.1.22+1.21.1"
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

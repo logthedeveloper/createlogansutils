@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "createlogansutils:redstone_log",
+    "createlogansutils:stripped_redstone_log",
+    "createlogansutils:redstone_wood",
+    "createlogansutils:stripped_redstone_wood",
+    "createlogansutils:redstone_planks",
+    "createlogansutils:redstone_stairs",
+    "createlogansutils:redstone_slab",
+    "createlogansutils:redstone_fence",
+    "createlogansutils:redstone_fence_gate",
+    "createlogansutils:redstone_door",
+    "createlogansutils:redstone_trapdoor",
+    "createlogansutils:redstone_button",
+    "createlogansutils:redstone_pressure_plate",
+    "createlogansutils:redstone_sign",
+    "createlogansutils:redstone_wall_sign",
+    "createlogansutils:redstone_hanging_sign",
+    "createlogansutils:redstone_wall_hanging_sign"
+  ]
+}

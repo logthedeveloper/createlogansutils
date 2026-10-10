@@ -1,0 +1,18 @@
+{
+  "type": "createoreexcavation:vein",
+  "amountMultiplierMax": 2.0,
+  "amountMultiplierMin": 1.0,
+  "biomeWhitelist": "minecraft:is_overworld",
+  "finite": "never",
+  "icon": {
+    "count": 1,
+    "id": "createlogansutils:liquid_redstone_bucket"
+  },
+  "name": "{\"translate\":\"block.createlogansutils.liquid_redstone\"}",
+  "placement": {
+    "salt": 1195889995,
+    "separation": 8,
+    "spacing": 64
+  },
+  "priority": 0
+}

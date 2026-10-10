@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:remove_features",
+  "biomes": "createlogansutils:redstone_wastelands",
+  "features": "createlogansutils:mint_patch_placed",
+  "steps": "vegetal_decoration"
+}

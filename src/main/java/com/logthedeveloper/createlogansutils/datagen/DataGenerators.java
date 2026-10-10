@@ -11,10 +11,13 @@ import java.util.Set;
 public class DataGenerators {
 
     public static void gatherData(GatherDataEvent event) {
-        PackOutput packOutput = event.getGenerator().getPackOutput();
+        var generator = event.getGenerator();
+        PackOutput packOutput = generator.getPackOutput();
         var lookupProvider = event.getLookupProvider();
+        var helper = event.getExistingFileHelper();
 
-        event.getGenerator().addProvider(
+        // your existing loot provider
+        generator.addProvider(
                 event.includeServer(),
                 new LootTableProvider(
                         packOutput,
@@ -26,5 +29,17 @@ public class DataGenerators {
                         lookupProvider
                 )
         );
+
+        // new providers
+        generator.addProvider(event.includeServer(),
+                new ModWorldGenProvider(packOutput, lookupProvider));
+
+        ModBlockTagProvider blockTags = generator.addProvider(event.includeServer(),
+                new ModBlockTagProvider(packOutput, lookupProvider, helper));
+        generator.addProvider(event.includeServer(),
+                new ModItemTagProvider(packOutput, lookupProvider, blockTags.contentsGetter(), helper));
+
+        generator.addProvider(event.includeClient(),
+                new ModBlockStateProvider(packOutput, helper));
     }
 }

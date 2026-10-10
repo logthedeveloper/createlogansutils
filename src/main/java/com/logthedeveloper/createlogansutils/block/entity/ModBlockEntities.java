@@ -18,6 +18,12 @@ public class ModBlockEntities {
                     YoungCheeseBinBlockEntity::new,
                     ModBlocks.YOUNG_CHEESE_BIN.get()
             ).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MechanicalJuicerBlockEntity>> MECHANICAL_JUICER =
+            BLOCK_ENTITIES.register("mechanical_juicer", () ->
+                    BlockEntityType.Builder.of(
+                            (pos, state) -> new MechanicalJuicerBlockEntity(ModBlockEntities.MECHANICAL_JUICER.get(), pos, state),
+                            ModBlocks.MECHANICAL_JUICER.get()
+                    ).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InfiniteLavaSourceBlockEntity>> INFINITE_LAVA_SOURCE =
             BLOCK_ENTITIES.register("infinite_lava_source",
                     () -> BlockEntityType.Builder.of(InfiniteLavaSourceBlockEntity::new, ModBlocks.INFINITE_LAVA_SOURCE.get()).build(null));

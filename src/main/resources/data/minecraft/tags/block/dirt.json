@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "createlogansutils:redstone_dirt",
+    "createlogansutils:redstone_grass"
+  ]
+}

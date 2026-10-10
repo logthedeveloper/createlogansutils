@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "createlogansutils:block/redstone_slab"
+    },
+    "type=top": {
+      "model": "createlogansutils:block/redstone_slab_top"
+    },
+    "type=double": {
+      "model": "createlogansutils:block/redstone_planks"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "createlogansutils:block/redstone_log"
+    },
+    "axis=z": {
+      "model": "createlogansutils:block/redstone_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "createlogansutils:block/redstone_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

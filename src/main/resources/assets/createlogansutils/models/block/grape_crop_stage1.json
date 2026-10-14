@@ -1,0 +1,5 @@
+{
+  "parent": "minecraft:block/crop",
+  "render_type": "minecraft:cutout",
+  "textures": { "crop": "createlogansutils:block/grape_crop_stage1" }
+}

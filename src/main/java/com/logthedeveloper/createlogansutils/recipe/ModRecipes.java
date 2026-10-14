@@ -14,6 +14,17 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.RegisterEvent;
+import com.logthedeveloper.createlogansutils.CreateLogansUtils;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import static com.logthedeveloper.createlogansutils.recipe.ModJuicerRecipes.SERIALIZERS;
+import static com.logthedeveloper.createlogansutils.recipe.ModJuicerRecipes.TYPES;
 
 public class ModRecipes {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES =
@@ -29,6 +40,12 @@ public class ModRecipes {
 
     public static final DeferredHolder<RecipeSerializer<?>, FluidConversionRecipeSerializer> FLUID_CONVERSION_SERIALIZER =
             RECIPE_SERIALIZERS.register("fluid_conversion", () -> FluidConversionRecipeSerializer.INSTANCE);
+    public static final DeferredHolder<RecipeType<?>, RecipeType<AgingRecipe>> AGING_TYPE =
+            TYPES.register("aging", () -> RecipeType.simple(
+                    ResourceLocation.fromNamespaceAndPath(CreateLogansUtils.MODID, "aging")));
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<AgingRecipe>> AGING_SERIALIZER =
+            SERIALIZERS.register("aging", AgingRecipe.Serializer::new);
 
 
 

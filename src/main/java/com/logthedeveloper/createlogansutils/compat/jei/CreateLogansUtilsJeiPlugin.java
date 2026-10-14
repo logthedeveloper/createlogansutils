@@ -4,6 +4,7 @@ import com.logthedeveloper.createlogansutils.CreateLogansUtils;
 import com.logthedeveloper.createlogansutils.recipe.FluidConversionRecipe;
 import com.logthedeveloper.createlogansutils.recipe.JuicingRecipe;
 import com.logthedeveloper.createlogansutils.recipe.ModJuicerRecipes;
+import com.logthedeveloper.createlogansutils.recipe.AgingRecipe;
 import com.logthedeveloper.createlogansutils.recipe.ModRecipes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -36,6 +37,7 @@ public class CreateLogansUtilsJeiPlugin implements IModPlugin {
         var helper = registration.getJeiHelpers().getGuiHelper();
         registration.addRecipeCategories(new FluidConversionCategory(helper));
         registration.addRecipeCategories(new JuicingJeiCategory(helper));
+        registration.addRecipeCategories(new AgingCategory(helper));
     }
 
     @Override
@@ -52,10 +54,17 @@ public class CreateLogansUtilsJeiPlugin implements IModPlugin {
                 .getAllRecipesFor(ModJuicerRecipes.JUICING.<RecipeInput, JuicingRecipe>getType())
                 .stream().map(RecipeHolder::value).toList();
         registration.addRecipes(JUICING, juicing);
+
+        List<AgingRecipe> aging = level.getRecipeManager()
+                .getAllRecipesFor(ModRecipes.AGING_TYPE.get())
+                .stream().map(RecipeHolder::value).toList();
+        registration.addRecipes(AgingCategory.TYPE, aging);
     }
+
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(CreateLogansUtils.MECHANICAL_JUICER.get()), JUICING);
+        registration.addRecipeCatalyst(new ItemStack(CreateLogansUtils.YOUNG_CHEESE_BIN.get()), AgingCategory.TYPE);
     }
 }

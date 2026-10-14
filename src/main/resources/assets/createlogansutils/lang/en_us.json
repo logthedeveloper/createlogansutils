@@ -57,5 +57,13 @@
   "block.createlogansutils.redstone_hanging_sign": "Redstone Hanging Sign",
   "block.createlogansutils.redstone_leaves": "Redstone Leaves",
   "block.createlogansutils.redstone_sapling": "Redstone Sapling",
-  "biome.createlogansutils.redstone_wastelands": "Redstone Wastelands"
+  "biome.createlogansutils.redstone_wastelands": "Redstone Wastelands",
+  "block.createlogansutils.mechanical_juicer": "Mechanical Juicer",
+  "block.createlogansutils.grape_crop": "Grape Vines",
+  "block.createlogansutils.wild_grape": "Wild Grape Vine",
+  "item.createlogansutils.grape": "Grapes",
+  "item.createlogansutils.grape_seeds": "Grape Seeds",
+  "category.createlogansutils.aging": "Aging",
+  "category.createlogansutils.fluid_conversion": "Fluid Conversion",
+  "gui.createlogansutils.aging.time": "Ages in %s seconds"
 }

@@ -13,11 +13,7 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, CreateLogansUtils.MODID);
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<YoungCheeseBinBlockEntity>> YOUNG_CHEESE_BIN =
-            BLOCK_ENTITIES.register("young_cheese_bin", () -> BlockEntityType.Builder.of(
-                    YoungCheeseBinBlockEntity::new,
-                    ModBlocks.YOUNG_CHEESE_BIN.get()
-            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MechanicalJuicerBlockEntity>> MECHANICAL_JUICER =
             BLOCK_ENTITIES.register("mechanical_juicer", () ->
                     BlockEntityType.Builder.of(

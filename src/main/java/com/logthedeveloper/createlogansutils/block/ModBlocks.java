@@ -15,14 +15,13 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(CreateLogansUtils.MODID);
 
-    public static final DeferredBlock<YoungCheeseBinBlock> YOUNG_CHEESE_BIN =
-            BLOCKS.register("young_cheese_bin", () -> new YoungCheeseBinBlock(
+    public static final DeferredBlock<AgingBlock> YOUNG_CHEESE_BIN =
+            BLOCKS.register("young_cheese_bin", () -> new AgingBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_YELLOW)
                             .strength(0.6F)
                             .sound(SoundType.WOOD)
                             .noOcclusion()));
-
     public static final DeferredBlock<AgedCheeseBinBlock> AGED_CHEESE_BIN =
             BLOCKS.register("aged_cheese_bin", () -> new AgedCheeseBinBlock(
                     BlockBehaviour.Properties.of()
@@ -69,6 +68,7 @@ public class ModBlocks {
                             .sound(SoundType.CROP)
                             .randomTicks()
             ));
+
     // ---- Redstone Wastelands ----
     public static final DeferredBlock<Block> REDSTONE_DIRT = BLOCKS.register("redstone_dirt",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
@@ -83,6 +83,10 @@ public class ModBlocks {
             () -> new ModStrippableLog(STRIPPED_REDSTONE_LOG, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
     public static final DeferredBlock<RotatedPillarBlock> REDSTONE_WOOD = BLOCKS.register("redstone_wood",
             () -> new ModStrippableLog(STRIPPED_REDSTONE_WOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
+    public static final DeferredBlock<GrapeCropBlock> GRAPE_CROP = BLOCKS.register("grape_crop",
+            () -> new GrapeCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)));
+    public static final DeferredBlock<WildGrapeBlock> WILD_GRAPE = BLOCKS.register("wild_grape",
+            () -> new WildGrapeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)));
 
     public static final DeferredBlock<Block> REDSTONE_PLANKS = BLOCKS.register("redstone_planks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));

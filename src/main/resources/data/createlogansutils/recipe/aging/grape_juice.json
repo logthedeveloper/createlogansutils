@@ -1,0 +1,6 @@
+{
+  "type": "createlogansutils:aging",
+  "ingredient": { "item": "createlogansutils:grape_juice_bin" },
+  "result": { "id": "createlogansutils:wine_bin" },
+  "time": 200
+}

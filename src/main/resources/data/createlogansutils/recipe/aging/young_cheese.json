@@ -1,0 +1,6 @@
+{
+  "type": "createlogansutils:aging",
+  "ingredient": { "item": "createlogansutils:young_cheese_bin" },
+  "result": { "id": "createlogansutils:aged_cheese_bin" },
+  "time": 100
+}

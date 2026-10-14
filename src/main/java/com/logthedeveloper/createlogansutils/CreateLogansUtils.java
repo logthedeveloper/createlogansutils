@@ -85,6 +85,7 @@ public class CreateLogansUtils {
                     new ItemNameBlockItem(ModBlocks.MINT_CROP.get(), new Item.Properties()));
     public static final DeferredItem<BlockItem> MINT = ITEMS.register("mint",
             () -> new BlockItem(ModBlocks.MINT.get(), new Item.Properties()));
+
     public static final DeferredItem<BlockItem> REDSTONE_DIRT_ITEM = ITEMS.registerSimpleBlockItem("redstone_dirt", ModBlocks.REDSTONE_DIRT);
     public static final DeferredItem<BlockItem> REDSTONE_GRASS_ITEM = ITEMS.registerSimpleBlockItem("redstone_grass", ModBlocks.REDSTONE_GRASS);
     public static final DeferredItem<BlockItem> REDSTONE_LOG_ITEM = ITEMS.registerSimpleBlockItem("redstone_log", ModBlocks.REDSTONE_LOG);
@@ -177,6 +178,12 @@ public class CreateLogansUtils {
                     )
             )
     );
+    public static final DeferredItem<Item> GRAPE = ITEMS.registerSimpleItem("grape",
+            new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.3F).build()));
+    public static final DeferredItem<Item> GRAPE_SEEDS = ITEMS.register("grape_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.GRAPE_CROP.get(), new Item.Properties()));
+    public static final DeferredItem<BlockItem> WILD_GRAPE_ITEM =
+            ITEMS.registerSimpleBlockItem("wild_grape", ModBlocks.WILD_GRAPE);
     public static final DeferredItem<MintTeaItem> MINT_TEA = ITEMS.register("mint_tea",
             () -> new MintTeaItem(new Item.Properties()
                     .stacksTo(16)
@@ -226,7 +233,11 @@ public class CreateLogansUtils {
                 output.accept(REDSTONE_WOOD_ITEM.get());
                 output.accept(STRIPPED_REDSTONE_WOOD_ITEM.get());
                 output.accept(REDSTONE_PLANKS_ITEM.get());
+                output.accept(MECHANICAL_JUICER.get());
                 output.accept(REDSTONE_STAIRS_ITEM.get());
+                output.accept(GRAPE.get());
+                output.accept(GRAPE_SEEDS.get());
+                output.accept(WILD_GRAPE_ITEM.get()); //temp
                 output.accept(REDSTONE_SLAB_ITEM.get());
                 output.accept(REDSTONE_FENCE_ITEM.get());
                 output.accept(REDSTONE_FENCE_GATE_ITEM.get());
@@ -244,11 +255,13 @@ public class CreateLogansUtils {
                 output.accept(LAVA_COMPONENT_2.get());
                 output.accept(BLOCK_OF_CHEESE.get());
                 output.accept(MINT.get());
+
                 output.accept(EMPTY_CUP.get());
                 if (Config.ENABLE_INFINITE_LAVA_SOURCE.get()) {
                     output.accept(INFINITE_LAVA_SOURCE.get());
                 }
                 output.accept(MINT_TEA.get());
+
                 output.accept(MINT_SEEDS.get());
                 // output.accept(MUSIC_DISC_GOLDENBROWN.get());
                 // output.accept(MUSIC_DISC_AUREASOL.get());

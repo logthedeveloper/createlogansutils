@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": { "model": "createlogansutils:block/mint" }
+    "snowy=false": { "model": "createlogansutils:block/mint" },
+    "snowy=true": { "model": "createlogansutils:block/mint_snowy" }
   }
 }

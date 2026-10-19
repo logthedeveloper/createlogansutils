@@ -1,6 +1,7 @@
 package com.logthedeveloper.createlogansutils.block;
 
 import com.logthedeveloper.createlogansutils.CreateLogansUtils;
+import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -36,6 +37,13 @@ public class ModBlocks {
                             .strength(2.0f)
                             .lightLevel(state -> 15)
             ));
+    public static final DeferredBlock<UpgradeableTankBlock> UPGRADEABLE_TANK = BLOCKS.register("upgradeable_tank",
+            () -> new UpgradeableTankBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .strength(3.0f)
+                    .sound(SoundType.COPPER)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()));
     public static final DeferredBlock<MechanicalJuicerBlock> MECHANICAL_JUICER =
             BLOCKS.register("mechanical_juicer", () -> new MechanicalJuicerBlock(
                     BlockBehaviour.Properties.of()
@@ -50,6 +58,8 @@ public class ModBlocks {
                             .strength(1.0F)
                             .sound(SoundType.SLIME_BLOCK)
             ));
+    public static final DeferredBlock<WrenchableBlock> CREATIVE_CASING = BLOCKS.register("creative_casing",
+            () -> new WrenchableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<MintBlock> MINT = BLOCKS.register("mint",
             () -> new MintBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.PLANT)

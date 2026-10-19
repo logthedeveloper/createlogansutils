@@ -9,6 +9,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import com.logthedeveloper.createlogansutils.block.entity.InfiniteLavaSourceBlockEntity;
 
+import java.util.function.Supplier;
+
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, CreateLogansUtils.MODID);
@@ -20,6 +22,9 @@ public class ModBlockEntities {
                             (pos, state) -> new MechanicalJuicerBlockEntity(ModBlockEntities.MECHANICAL_JUICER.get(), pos, state),
                             ModBlocks.MECHANICAL_JUICER.get()
                     ).build(null));
+    public static final Supplier<BlockEntityType<UpgradeableTankBlockEntity>> UPGRADEABLE_TANK =
+            BLOCK_ENTITIES.register("upgradeable_tank", () ->
+                    BlockEntityType.Builder.of(UpgradeableTankBlockEntity::new, ModBlocks.UPGRADEABLE_TANK.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<InfiniteLavaSourceBlockEntity>> INFINITE_LAVA_SOURCE =
             BLOCK_ENTITIES.register("infinite_lava_source",
                     () -> BlockEntityType.Builder.of(InfiniteLavaSourceBlockEntity::new, ModBlocks.INFINITE_LAVA_SOURCE.get()).build(null));

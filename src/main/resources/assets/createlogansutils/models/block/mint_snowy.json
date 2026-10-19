@@ -1,0 +1,43 @@
+{
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "createlogansutils:block/mint",
+    "snow": "minecraft:block/snow",
+    "particle": "createlogansutils:block/mint"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 2, 16],
+      "faces": {
+        "down": { "uv": [0, 0, 16, 16], "texture": "#snow", "cullface": "down" },
+        "up": { "uv": [0, 0, 16, 16], "texture": "#snow" },
+        "north": { "uv": [0, 14, 16, 16], "texture": "#snow", "cullface": "north" },
+        "south": { "uv": [0, 14, 16, 16], "texture": "#snow", "cullface": "south" },
+        "west": { "uv": [0, 14, 16, 16], "texture": "#snow", "cullface": "west" },
+        "east": { "uv": [0, 14, 16, 16], "texture": "#snow" , "cullface": "east" }
+      }
+    },
+    {
+      "from": [0.8, 2, 8],
+      "to": [15.2, 16, 8],
+      "rotation": { "origin": [8, 8, 8], "axis": "y", "angle": 45, "rescale": true },
+      "shade": false,
+      "faces": {
+        "north": { "uv": [0, 0, 16, 14], "texture": "#cross", "tintindex": 0 },
+        "south": { "uv": [0, 0, 16, 14], "texture": "#cross", "tintindex": 0 }
+      }
+    },
+    {
+      "from": [8, 2, 0.8],
+      "to": [8, 16, 15.2],
+      "rotation": { "origin": [8, 8, 8], "axis": "y", "angle": 45, "rescale": true },
+      "shade": false,
+      "faces": {
+        "west": { "uv": [0, 0, 16, 14], "texture": "#cross", "tintindex": 0 },
+        "east": { "uv": [0, 0, 16, 14], "texture": "#cross", "tintindex": 0 }
+      }
+    }
+  ]
+}

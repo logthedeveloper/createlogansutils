@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["NBN", "BPB", "NBN"],
+  "key": {
+    "B": { "item": "minecraft:emerald_block" },
+    "N": { "item": "minecraft:netherite_block" },
+    "P": { "item": "minecraft:glass_pane" }
+  },
+  "result": { "id": "createlogansutils:tank_upgrade_32x", "count": 1 }
+}

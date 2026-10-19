@@ -3,6 +3,7 @@ package com.logthedeveloper.createlogansutils.client;
 import com.logthedeveloper.createlogansutils.CreateLogansUtils;
 import com.logthedeveloper.createlogansutils.block.entity.MechanicalJuicerBlockEntity;
 import com.logthedeveloper.createlogansutils.block.entity.ModBlockEntities;
+import com.logthedeveloper.createlogansutils.menu.ModMenuTypes;
 import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -10,8 +11,13 @@ import net.minecraft.world.item.Item;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import com.mojang.blaze3d.shaders.FogShape;
+import com.logthedeveloper.createlogansutils.block.entity.ModBlockEntities;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+
+
 import net.minecraft.world.level.material.FogType;
 import net.minecraft.client.Minecraft;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.ViewportEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -20,6 +26,14 @@ import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsE
 
 @EventBusSubscriber(modid = CreateLogansUtils.MODID, value = Dist.CLIENT)
 public class ClientModEvents {
+    @SubscribeEvent
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.UPGRADEABLE_TANK_MENU.get(), UpgradeableTankScreen::new);
+    }
+    @SubscribeEvent
+    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.UPGRADEABLE_TANK.get(), UpgradeableTankRenderer::new);
+    }
 
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {

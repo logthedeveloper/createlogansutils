@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:block",
+  "pools": [{
+    "rolls": 1,
+    "entries": [{ "type": "minecraft:item", "name": "createlogansutils:upgradeable_tank" }],
+    "conditions": [{ "condition": "minecraft:survives_explosion" }]
+  }]
+}

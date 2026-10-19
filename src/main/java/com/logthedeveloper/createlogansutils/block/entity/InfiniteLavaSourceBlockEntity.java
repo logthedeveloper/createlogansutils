@@ -12,18 +12,14 @@ import org.jetbrains.annotations.Nullable;
 
 public class InfiniteLavaSourceBlockEntity extends BlockEntity {
 
-    // The "always available" amount, in mB, as requested: 1000mB of lava
+
     public static final int CAPACITY = 1000;
 
     public InfiniteLavaSourceBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.INFINITE_LAVA_SOURCE.get(), pos, state);
     }
 
-    // A fluid handler that never actually depletes: every time something is
-    // drained, we just hand out lava and forget it ever happened. Nothing is
-    // stored in NBT because there's no real state to track.
-    // Every method checks the config toggle first - when disabled, this acts
-    // like a completely empty, inert tank instead of producing any lava.
+
     private final IFluidHandler fluidHandler = new IFluidHandler() {
         @Override
         public int getTanks() {

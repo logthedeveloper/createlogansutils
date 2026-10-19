@@ -11,12 +11,8 @@
     "minecraft:cherry_grove",
     "minecraft:snowy_plains",
     "minecraft:taiga",
-    "minecraft:snowy_taiga",
     "minecraft:old_growth_pine_taiga",
     "minecraft:old_growth_spruce_taiga",
-    "minecraft:snowy_slopes",
-    "minecraft:frozen_peaks",
-    "minecraft:grove",
     "minecraft:desert",
     "minecraft:savanna",
     "minecraft:windswept_savanna",
@@ -34,8 +30,6 @@
     "minecraft:windswept_forest",
     "minecraft:mushroom_fields",
     "minecraft:lush_caves"
-
-
   ],
   "features": "createlogansutils:mint_patch_placed",
   "step": "vegetal_decoration"

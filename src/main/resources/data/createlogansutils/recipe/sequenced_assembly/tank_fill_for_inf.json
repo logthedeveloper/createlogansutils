@@ -1,0 +1,35 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:fluid_tank"
+  },
+  "loops": 5000,
+  "results": [
+    {
+      "id": "minecraft:dirt"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "createlogansutils:incomplete_tank"
+        },
+        {
+          "type": "neoforge:single",
+          "amount": 1000,
+          "fluid": "minecraft:lava"
+        }
+      ],
+      "results": [
+        {
+          "id": "createlogansutils:incomplete_tank"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "createlogansutils:incomplete_tank"
+  }
+}

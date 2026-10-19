@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["III", "ITI", "III"],
+  "key": {
+    "I": { "item": "minecraft:diamond_block" },
+    "T": { "item": "create:fluid_tank" }
+  },
+  "result": { "id": "createlogansutils:upgradeable_tank", "count": 1 }
+}

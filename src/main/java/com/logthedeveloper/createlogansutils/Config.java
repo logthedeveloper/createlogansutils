@@ -9,5 +9,6 @@ public class Config {
             .comment("Whether the Infinite Lava Source block is functional and shown in the creative menu")
             .define("enableInfiniteLavaSource", true);
 
+
     static final ModConfigSpec SPEC = BUILDER.build();
 }

@@ -4,6 +4,8 @@ import com.logthedeveloper.createlogansutils.item.*;
 import com.logthedeveloper.createlogansutils.worldgen.ModTerraBlender;
 
 import net.minecraft.world.item.*;
+import net.neoforged.fml.ModList;
+
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -51,6 +53,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 @Mod(CreateLogansUtils.MODID)
 public class CreateLogansUtils {
+    public static boolean modLoaded(String id) {
+        return ModList.get().isLoaded(id);
+    }
 
     public static final String MODID = "createlogansutils";
     public static final Logger LOGGER = LogUtils.getLogger();
@@ -172,6 +177,10 @@ public class CreateLogansUtils {
     public static final DeferredItem<TankUpgradeItem> TANK_UPGRADE_INFINITE = ITEMS.register("tank_upgrade_infinite",
             () -> new TankUpgradeItem(new Item.Properties(), TankUpgradeItem.INFINITE));
     public static final DeferredItem<Item> SULFUR_DUST = ITEMS.registerSimpleItem("sulfur_dust");
+    public static final DeferredItem<Item> PEPPERMINT_HOT_CHOCOLATE_BOTTLE =
+            modLoaded("createfood")
+                    ? ITEMS.registerSimpleItem("peppermint_hot_chocolate_bottle")
+                    : null;
     public static final DeferredItem<Item> INCOMPLETE_TANK = ITEMS.registerSimpleItem("incomplete_tank");
     public static final DeferredItem<Item> BASKET = ITEMS.registerSimpleItem("basket");
     public static final DeferredItem<Item> LAVA_COMPONENT_1 = ITEMS.registerSimpleItem("lava_component_1");
@@ -262,6 +271,9 @@ public class CreateLogansUtils {
                 output.accept(REDSTONE_STAIRS_ITEM.get());
                 output.accept(GRAPE.get());
                 output.accept(GRAPE_SEEDS.get());
+                if (PEPPERMINT_HOT_CHOCOLATE_BOTTLE != null) {
+                    output.accept(PEPPERMINT_HOT_CHOCOLATE_BOTTLE.get());
+                }
                 output.accept(WILD_GRAPE_ITEM.get()); //temp
                 output.accept(REDSTONE_SLAB_ITEM.get());
                 output.accept(REDSTONE_FENCE_ITEM.get());

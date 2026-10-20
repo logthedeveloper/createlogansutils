@@ -1,0 +1,13 @@
+{
+  "neoforge:conditions": [
+    { "type": "neoforge:mod_loaded", "modid": "createfood" }
+  ],
+  "type": "create:deploying",
+  "ingredients": [
+    { "item": "createfood:hot_chocolate_bottle" },
+    { "item": "createlogansutils:mint" }
+  ],
+  "results": [
+    { "id": "createlogansutils:peppermint_hot_chocolate_bottle" }
+  ]
+}

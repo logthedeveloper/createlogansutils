@@ -22,8 +22,8 @@ public class CheesyBreadItem extends Item {
         if (!level.isClientSide) {
             if (entity instanceof Player player) {
                 FoodData foodData = player.getFoodData();
-                foodData.setFoodLevel(20);
-                foodData.setSaturation(20f);
+                foodData.setFoodLevel(19);
+                foodData.setSaturation(19f);
             }
 
             entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0)); // 10 seconds, Regen I

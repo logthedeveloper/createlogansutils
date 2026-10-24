@@ -44,6 +44,8 @@ public class ModBlocks {
                     .sound(SoundType.COPPER)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()));
+    public static final DeferredBlock<Block> RAW_CRAFTITE = BLOCKS.register("raw_craftite",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
     public static final DeferredBlock<MechanicalJuicerBlock> MECHANICAL_JUICER =
             BLOCKS.register("mechanical_juicer", () -> new MechanicalJuicerBlock(
                     BlockBehaviour.Properties.of()

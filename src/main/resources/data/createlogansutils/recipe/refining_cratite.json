@@ -1,0 +1,12 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    { "item": "createlogansutils:raw_craftite" }
+  ],
+  "results": [
+    {
+      "id": "createlogansutils:refined_craftite",
+      "chance": 0.005
+    }
+  ]
+}

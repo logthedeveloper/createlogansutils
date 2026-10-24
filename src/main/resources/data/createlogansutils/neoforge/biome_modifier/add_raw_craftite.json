@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "createlogansutils:raw_craftite_buried",
+    "createlogansutils:raw_craftite_surface"
+  ],
+  "step": "underground_ores"
+}

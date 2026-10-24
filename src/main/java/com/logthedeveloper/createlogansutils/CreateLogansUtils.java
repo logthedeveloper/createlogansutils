@@ -3,6 +3,9 @@ package com.logthedeveloper.createlogansutils;
 import com.logthedeveloper.createlogansutils.item.*;
 import com.logthedeveloper.createlogansutils.worldgen.ModTerraBlender;
 
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.neoforged.fml.ModList;
 
@@ -179,7 +182,30 @@ public class CreateLogansUtils {
     public static final DeferredItem<Item> SULFUR_DUST = ITEMS.registerSimpleItem("sulfur_dust");
     public static final DeferredItem<Item> PEPPERMINT_HOT_CHOCOLATE_BOTTLE =
             modLoaded("createfood")
-                    ? ITEMS.registerSimpleItem("peppermint_hot_chocolate_bottle")
+                    ? ITEMS.register("peppermint_hot_chocolate_bottle", () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(16)
+                            .food(new FoodProperties.Builder()
+                                    .nutrition(20)
+                                    .saturationModifier(1.0F)
+                                    .alwaysEdible()
+                                    .usingConvertsTo(Items.GLASS_BOTTLE)
+                                    .build())) {
+                @Override
+                public UseAnim getUseAnimation(ItemStack stack) {
+                    return UseAnim.DRINK;
+                }
+
+                @Override
+                public SoundEvent getEatingSound() {
+                    return SoundEvents.GENERIC_DRINK;
+                }
+
+                @Override
+                public SoundEvent getDrinkingSound() {
+                    return SoundEvents.GENERIC_DRINK;
+                }
+            })
                     : null;
     public static final DeferredItem<Item> INCOMPLETE_TANK = ITEMS.registerSimpleItem("incomplete_tank");
     public static final DeferredItem<Item> BASKET = ITEMS.registerSimpleItem("basket");
@@ -187,14 +213,13 @@ public class CreateLogansUtils {
     public static final DeferredItem<Item> LAVA_COMPONENT_2 = ITEMS.registerSimpleItem("lava_component_2");
 
     public static final DeferredItem<Item> EMPTY_CUP = ITEMS.registerSimpleItem("empty_cup");
-    public static final DeferredItem<CheesyBreadItem> CHEESY_BREAD = ITEMS.registerItem("cheesy_bread",
-            CheesyBreadItem::new,
-            new Item.Properties().food(
-                    new FoodProperties.Builder()
-                            .nutrition(1)
-                            .saturationModifier(0.1f)
-                            .build()
-            ));
+    public static final DeferredItem<Item> CHEESY_BREAD = ITEMS.registerSimpleItem("cheesy_bread",
+            new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(20)
+                    .saturationModifier(1.0F)
+                    .alwaysEdible()
+                    .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0F)
+                    .build()));
     public static final DeferredHolder<Item, Item> CHEESE_SLICE = ITEMS.register(
             "cheese_slice",
             () -> new Item(new Item.Properties()
@@ -220,6 +245,8 @@ public class CreateLogansUtils {
                             .usingConvertsTo(EMPTY_CUP.get()) // Fallback return item
                             .build())
             ));
+    public static final DeferredItem<BlockItem> RAW_CRAFTITE =
+            ITEMS.registerSimpleBlockItem(ModBlocks.RAW_CRAFTITE);
     public static final DeferredItem<BlockItem> INFINITE_LAVA_SOURCE =
             ITEMS.register("infinite_lava_source", () ->
                     new BlockItem(ModBlocks.INFINITE_LAVA_SOURCE.get(), new Item.Properties()));
@@ -229,6 +256,7 @@ public class CreateLogansUtils {
     public static final DeferredItem<RedstoneCigaretteItem> REDSTONE_CIGARETTE =
             ITEMS.registerItem("redstone_cigarette", RedstoneCigaretteItem::new);
     public static final DeferredItem<Item> CHEESE_BOWL = ITEMS.registerSimpleItem("cheese_bowl");
+    public static final DeferredItem<Item> REFINED_CRAFTITE = ITEMS.registerSimpleItem("refined_craftite");
     public static final DeferredItem<BlazeMilkCakeItem> BLAZE_MILK_CAKE = ITEMS.registerItem("blaze_milk_cake",
             BlazeMilkCakeItem::new,
             new Item.Properties().food(
@@ -246,6 +274,8 @@ public class CreateLogansUtils {
             .displayItems((parameters, output) -> {
                 output.accept(BLAZE_MILK_CAKE.get());
                 output.accept(SULFUR_DUST.get());
+                output.accept(REFINED_CRAFTITE.get());
+                output.accept(RAW_CRAFTITE.get());
                 output.accept(CHEESE_BOWL.get());
                 output.accept(CHEESY_BREAD.get());
                 output.accept(REDSTONE_CIGARETTE.get());
